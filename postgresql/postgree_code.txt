@@ -1,0 +1,137 @@
+create table table_dates (
+id serial primary key,
+emp_name varchar(100),
+hire_date date ,
+add_date  date default current_date )
+
+
+insert into table_dates(emp_name ,hire_date) values 
+('ranjit','2021-05-01')
+
+select * from table_dates
+
+select now()
+
+
+
+
+create table table_time (
+name text  primary key ,
+start_time time ,
+end_time time not null )
+
+
+ insert into table_time( name ,
+start_time ,
+end_time ) values  ('ranjit', '04:10:14','05:05:10')
+
+select * from table_time
+
+
+select current_time(2)
+
+
+
+ time with interval 
+ 
+ n=number
+ type =second ,minute , hour , day , month , year 
+ 
+select current_time , current_time + interval  '2 hour' as output  
+
+
+show timezone
+---- select current timestamp
+select  current_timestamp
+
+-- current time of today 
+
+select  timeofday()
+
+###################  
+
+create extension if not exists "uuid-ossp"
+
+
+select uuid_generate_v1()
+
+
+select uuid_generate_v4()
+
+#################
+
+
+array 
+
+
+
+
+create table  array_table(
+id serial ,
+name varchar(100),
+phone text[]
+
+);
+
+select * from array_table
+
+
+insert into array_table (name ,phone) values
+('rajesh',array['o22-222','022-345']) 
+('vejesh',array['o22-555','022-345']) 
+
+
+# find  array value 
+select name,phone[1]
+from  array_table
+where phone [1]='o22-222'
+
+
+#######################
+  hstore_table
+
+create extension  if not exists hstore
+
+create table  hstore_table (
+
+book_is serial primary key ,
+title varchar(100) not null,
+book_info hstore)
+
+insert into hstore_table (title ,book_info )
+values ('start_page',
+		'"pub" =>"TO LIMIT",
+	     "cost" =>"Rs5"')
+		 
+('index_p',
+		'"pub" => "abc",
+	     "cost"=>1')
+		 		 
+select * from hstore_table
+
+
+# QUERY TO ACCES DATA WITH KEYS 
+
+select book_info -> 'cost'  as cost from hstore_table
+select book_info -> 'pub' ,book_info -> 'cost' from hstore_table
+
+#####################################
+
+email verification 
+
+
+
+
+create domain proper_mail varchar(150)
+check (value ~* '[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[A-Za-z]+$')
+
+
+create table cleints_names(
+
+ id serial primary key ,
+email proper_mail )
+
+
+insert into cleints_names (email) values('abc@gmail.com')
+
+
