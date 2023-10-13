@@ -1,0 +1,84 @@
+
+### sum #######
+
+select 
+sum (revenues_domestic)
+from
+public.movies_revenues
+
+
+
+----distinct 
+
+select 
+sum (distinct (revenues_domestic))
+from
+public.movies_revenues
+
+######### min  and max 
+
+select min(revenues_domestic)
+from
+public.movies_revenues
+
+
+select max(revenues_domestic)
+from
+public.movies_revenues
+
+
+
+#################################
+
+
+
+greatest and lowest 
+
+
+select greatest (10,20,30)
+
+
+select least (10,20,30,.5)
+
+
+
+select greatest('a','b','c')
+
+
+select least ('a','b','c')
+------
+select 
+revenues_domestic ,revenues_international,
+greatest (revenues_domestic ,revenues_international)  as "greatest",
+least (revenues_domestic ,revenues_international)  as "lowest "
+from
+public.movies_revenues
+
+
+#################### avg #################
+
+
+select least (10,20,30,.5)
+
+select 
+avg(revenues_domestic)
+from 
+movies_revenues
+
+
+
+
+select avg(movie_length)
+from movies
+
+
+###############################
+
+
+select 2+3
+
+select 11/2
+
+select 2*3
+
+ select 20%2

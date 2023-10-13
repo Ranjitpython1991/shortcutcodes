@@ -1,0 +1,73 @@
+
+
+##########################
+get domin schema 
+
+
+SELECT typname 
+FROM pg_catalog.pg_type 
+JOIN pg_catalog.pg_namespace
+ON pg_namespace.oid = pg_type.typnamespace
+WHERE typtype = 'd' AND nspname = 'public'
+
+
+###########
+
+
+
+ check valid colur 
+
+
+
+
+create domain valid_colur varchar(15)
+check (value in ('red','yellow','green'))
+
+
+create table user_status(
+
+ id serial primary key ,
+colur_name valid_colur )
+
+
+insert into colur_test (colur_name) values('red')
+
+insert into colur_test (colur_name) values('green')
+
+
+
+select * from colur_test
+
+
+
+#################################################
+          check uses status 
+
+
+create domain valid_user varchar(15)
+check (value in ('active','deactive'))
+
+
+
+#################################
+
+create table user_status_t(
+
+ id serial primary key ,
+user_status valid_user )
+
+
+insert into user_status_t (user_status) values('active')
+
+insert into user_status_t (user_status) values('deactive')
+
+
+
+select * from user_status_t
+
+
+
+##################################################
+
+
+

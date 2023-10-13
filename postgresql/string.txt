@@ -1,0 +1,152 @@
+
+
+reversed string 
+
+
+select reverse('rajesh nanda')
+
+
+#####################
+
+
+split string  
+
+select split_part (string , delimiter,position)
+ select split_part('a,b' , ',',1)
+ 
+ 
+ select split_part('sdksdqairnawefeawfaqeauf' ,'a',2)
+
+
+####################
+
+
+
+select year in  column
+
+
+
+
+select movie_name ,release_date,
+split_part(release_date::text,'-',1)
+from  movies
+
+
+
+
+##############################
+
+
+
+Trim  
+
+
+
+
+
+TRIM  remove longes trim contaice charactor 
+
+LTRIM  REMOVE  sting bigining
+
+
+
+
+
+SELECT LTRIM ('@@@2AKASH','@')
+
+
+SELECT RTRIM ('ROHIT@@@@','@')
+
+SELECT TRIM ('@@@ROHIT@@@@','@')
+
+SELECT BTRIM ('@@@   ROHIT@@@@','@')
+
+----------------------for empty space 
+
+SELECT LTRIM ('   Rohit sharma')
+SELECT LTRIM ('Rohit sharma     ')
+
+SELECT LTRIM ('    Rohit sharma     ')
+
+
+############################
+
+
+ADD SRQUECE CHARACTERS 
+
+LAPD(STRING,LENTH[, FILL])
+TAPD(STRING,LENTH[, FILL])
+
+select lpad('databases',10,'@')
+
+select LPAD('databases',11,'*')
+
+select RPAD('databases',14,'@')
+
+
+
+##############################
+
+
+
+
+ SELECT LENGTH ('ROHIT')
+  
+ SELECT LENGTH ('ROHIT ')
+ 
+ 
+ SELECT CHAR_LENGTH ('ROHIT ')
+ 
+ 
+ SELECT LENGTH (CAST(1234  AS TEXT))
+ -----------------------  string  concate -----
+
+ SELECT  * FROM  public.directors
+ 
+  select first_name ||','||last_name from  directors
+  
+ select first_name ||' '||last_name , length(first_name ||' '||last_name)
+ from  directors 
+  order by 
+  2 desc
+ 
+ 
+ 
+ ##############################################
+
+
+select repeat('a',5)
+
+select repeat('ab',5)
+##########
+
+
+
+select replace ('rohit' ,'o','a')
+
+
+select replace( 'i love cat ', 'cat','hat')
+
+
+##############################
+
+
+select count(*)from movies
+
+---- select count(columns)
+
+
+select count(movie_name) from  movies
+
+-------
+
+select count(distinct(movie_name)) from  movies
+
+----
+select count(* )
+from  movies 
+where movie_lang='English'
+
+
+
+
